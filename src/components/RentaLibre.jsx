@@ -53,9 +53,9 @@ export default function RentaLibre () {
           💼Repository
           </Link>
         </Flex>
-        <Flex justifyContent='center' w='100%' h='100%' alignItems='center'>
+        {/* <Flex justifyContent='center' w='100%' h='100%' alignItems='center'>
         <Button mb='40px'>description</Button>
-        </Flex>
+        </Flex> */}
         </Box>
     </Box>
     </Box>

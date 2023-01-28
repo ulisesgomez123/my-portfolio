@@ -33,7 +33,7 @@ export default function MovieApp() {
       h="400px"
       onMouseEnter={() => setState({ hover: true, mount: false })}
       onMouseLeave={() => setState({ hover: false, mount: false })}
-      mt="3%"
+      m="3%"
     >
   
       <Img
