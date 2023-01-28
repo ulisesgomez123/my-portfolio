@@ -1,6 +1,9 @@
 import React, { useLayoutEffect, useRef} from 'react'
 import gsap from 'gsap';
 import {Box,Button,Flex,Text} from '@chakra-ui/react'
+import MovieApp from '../components/movieApp'
+import DogsApp from '../components/DogsApp'
+import RentaLibre from '../components/RentaLibre'
 
 export default function Proyects () {
 
@@ -16,7 +19,6 @@ export default function Proyects () {
   }, []);
   return (
     <Box
-      
       bgGradient="linear(to-r, red.500, yellow.500)"
       w="90%"
       h="1000px"
@@ -31,6 +33,11 @@ export default function Proyects () {
         <Text fontSize="45px" fontWeight="semibold">
           Proyects
         </Text>
+      </Flex>
+      <Flex justifyContent='space-around' wrap='wrap' >
+      <MovieApp/>
+      <DogsApp/>
+      <RentaLibre/>
       </Flex>
     </Box>
   );
