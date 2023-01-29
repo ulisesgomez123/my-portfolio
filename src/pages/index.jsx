@@ -6,6 +6,7 @@ import Tecnologies from '../components/tecnologies'
 import Contact from '../components/contact'
 import gsap from 'gsap';
 
+
 export default function Home() {
   
   const [state,setState] = useState({
@@ -27,7 +28,7 @@ export default function Home() {
   return (
     <Box>
       <Box ref={buttons}>
-      <Flex justifyContent="flex-end" >
+      <Flex justifyContent="flex-end">
         <Flex  w='520px' pl='95px' mt='1%' >
           <Button
             onClick={()=>setState({proyects:!state.proyects,tecnologies:false,constact:false})}
