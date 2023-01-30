@@ -8,15 +8,21 @@ import { useIsomorphicLayoutEffect } from '../../isomorphicEffect';
 gsap.registerPlugin(ScrollTrigger);
 
 function DataBase () {
-  const database = useRef();
-  
-  useLayoutEffect(() => {
-
+  const database = useRef(null);
+  useIsomorphicLayoutEffect(() => {
     let ctx = gsap.context(() => {
-    gsap.from(".databaseItem", {y: -2000, duration:1, scale:0.5, delay:1,stagger:.3 });  
-      }, database);
-    
-    return () => ctx.revert();
+
+    gsap.fromTo(
+      ".databaseItem",
+      {y:-2000,duration:1,stagger:.3,rotation:0},
+      {rotation:360, duration:2,stagger:.3,y:0,
+         scrollTrigger: {
+          trigger: ".databaseItem",
+          toggleActions:'restart',
+        }
+      }
+    );
+    },database)
   }, []);
 
   return (
@@ -101,13 +107,13 @@ function BackEnd () {
 
     gsap.fromTo(
       ".backendItem",
-      {y: -5000, duration:1, scale:0.5,stagger:.3,
+      {x:-500,duration:3,stagger:.3,rotation:0},
+      {rotation:360, duration:4,stagger:.3,x:0,ease:'elastic',
          scrollTrigger: {
           trigger: ".backendItem",
-          toggleActions:'restart none none none'
+          toggleActions:'restart none restart none'
         }
-      },
-      {y:0}
+      }
     );
     },backend)
   }, []);
@@ -192,10 +198,10 @@ function FrontEnd () {
 
     gsap.fromTo(
       ".frontendItem",
-      { rotation: 0 },
+      { rotation: 0,stagger:.2},
       {
         rotation: 360,
-        duration: 3,
+        duration: 1.5,
         stagger:.2,
         scrollTrigger: {
           trigger: ".frontendItem",
@@ -310,35 +316,6 @@ function FrontEnd () {
   )
 }
 
-function App() {
-  const imgRef = useRef(null);
-  useIsomorphicLayoutEffect(() => {
-    let ctx = gsap.context(() => {
-
-    gsap.fromTo(
-      ".App",
-      { rotation: 0 },
-      {
-        rotation: 180,
-        duration: 3,
-        stagger:2,
-        scrollTrigger: {
-          trigger: ".App",
-          toggleActions:'restart none none none'
-        },
-      }
-    );
-    },imgRef)
-  }, []);
-  return (
-    <div ref={imgRef}>
-      <div className="helper"></div>
-      <Img w='200px' h='200px' border='solid blue 2px' src='*' className="App" alt="logo" ref={imgRef} />
-      <Img w='200px' h='200px' border='solid blue 2px' src='*' className="App" alt="logo" ref={imgRef} />
-    </div>
-  );
-}
-
 export default function Tecnologies () {
     const tecnologies = useRef();
   
@@ -356,12 +333,8 @@ export default function Tecnologies () {
     <Box
       onS
       ref={tecnologies}
-      bgGradient="linear(to-r, red.500, yellow.500)"
-      w="90%"
-      ml="5%"
-      mr="5%"
-      mt="5%"
-      borderRadius="30px"
+      bgGradient="linear(to-r, red.500, yellow.500)" w="90%" ml="5%" mr="5%" mt="5%"
+      borderRadius="30px" mb='40px'
       border="solid 4px rgba(72, 168, 242, 0.735)"
     >
       <Flex justifyContent="center">
@@ -372,7 +345,6 @@ export default function Tecnologies () {
       <DataBase/>
       <BackEnd/>
       <FrontEnd/>
-      <App/>
     </Box>
   );
 }
