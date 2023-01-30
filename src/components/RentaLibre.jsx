@@ -49,7 +49,7 @@ export default function RentaLibre () {
           <Link href="https://rentalibre.vercel.app/" color="white" fontSize='20px' fontWeight='semibold'>
             🌐 go to site
           </Link>
-          <Link href="https://github.com/JLCareglio/PF-RentaLibre-HENRY" color="white" fontSize='20px' fontWeight='semibold'>
+          <Link href="https://github.com/ulisesgomez123/PF-RentaLibre-HENRY" color="white" fontSize='20px' fontWeight='semibold'>
           💼Repository
           </Link>
         </Flex>
