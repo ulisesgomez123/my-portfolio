@@ -96,24 +96,20 @@ function DataBase () {
 function BackEnd () {
   
   const backend = useRef(null);
-  useLayoutEffect(() => {
+  useIsomorphicLayoutEffect(() => {
     let ctx = gsap.context(() => {
-       gsap.from(".backendItem", 
-       {
-         y: -2000,
-         duration:1, 
-         scale:0.5, 
-         delay:1,
-         stagger:.3,
+
+    gsap.from(
+      ".backendItem",
+      {y: -5000, duration:1, scale:0.5,stagger:.3,
          scrollTrigger: {
-          trigger:".backendItem",
-          toggleActions: "restart none none none"
+          trigger: ".backendItem",
+          toggleActions:'restart none none none'
         }
       }
-        );  
-      }, backend);
+    );
+    },backend)
   }, []);
-
   return (
   <Box border="solid 2px rgb(8, 226, 8)" borderRadius='40px' m='2%' >
     <Flex justifyContent='center' bgColor='black' borderRadius='37px 37px 0 0'>
@@ -189,19 +185,28 @@ function BackEnd () {
 }
 
 function FrontEnd () {
-  const frontend = useRef();
-  
-  useLayoutEffect(() => {
-
+  const frontend = useRef(null);
+  useIsomorphicLayoutEffect(() => {
     let ctx = gsap.context(() => {
-    gsap.from(".frontendItem", {y: -2000, duration:1, scale:0.5, delay:1,stagger:.3 });  
-      }, frontend);
-    
-    return () => ctx.revert();
+
+    gsap.fromTo(
+      ".frontendItem",
+      { rotation: 0 },
+      {
+        rotation: 360,
+        duration: 3,
+        stagger:.2,
+        scrollTrigger: {
+          trigger: ".frontendItem",
+          toggleActions:'restart none none none'
+        },
+      }
+    );
+    },frontend)
   }, []);
 
   return (
-  <Box border="solid 2px rgb(229, 245, 7)" borderRadius='40px' m='2%'>
+  <Box border="solid 2px rgb(229, 245, 7)" borderRadius='40px' m='2%' ref={frontend}>
     <Flex justifyContent='center' bgColor='black' borderRadius='37px 37px 0 0'>
     <Text fontSize="40px" fontWeight="semibold" textAlign="center"
         color="rgb(229, 245, 7)"
@@ -209,7 +214,7 @@ function FrontEnd () {
         Front-end
       </Text>
       </Flex>
-    <Flex wrap='wrap' ref={frontend}>
+    <Flex wrap='wrap'>
     <Box className="frontendItem"
       m="3%" border="solid 2px rgb(229, 245, 7)" borderRadius="20px" 
       boxShadow="30px 10px black"
@@ -307,24 +312,28 @@ function FrontEnd () {
 function App() {
   const imgRef = useRef(null);
   useIsomorphicLayoutEffect(() => {
-    const el = imgRef.current;
+    let ctx = gsap.context(() => {
+
     gsap.fromTo(
-      el,
+      ".App",
       { rotation: 0 },
       {
         rotation: 180,
         duration: 3,
+        stagger:2,
         scrollTrigger: {
-          trigger: el,
+          trigger: ".App",
           toggleActions:'restart none none none'
         },
       }
     );
+    },imgRef)
   }, []);
   return (
-    <div className="App">
+    <div ref={imgRef}>
       <div className="helper"></div>
-      <Img w='200px' h='200px' border='solid blue 2px' src='*' className="App-logo" alt="logo" ref={imgRef} />
+      <Img w='200px' h='200px' border='solid blue 2px' src='*' className="App" alt="logo" ref={imgRef} />
+      <Img w='200px' h='200px' border='solid blue 2px' src='*' className="App" alt="logo" ref={imgRef} />
     </div>
   );
 }
