@@ -99,14 +99,15 @@ function BackEnd () {
   useIsomorphicLayoutEffect(() => {
     let ctx = gsap.context(() => {
 
-    gsap.from(
+    gsap.fromTo(
       ".backendItem",
       {y: -5000, duration:1, scale:0.5,stagger:.3,
          scrollTrigger: {
           trigger: ".backendItem",
           toggleActions:'restart none none none'
         }
-      }
+      },
+      {y:0}
     );
     },backend)
   }, []);
