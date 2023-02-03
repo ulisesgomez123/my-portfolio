@@ -75,9 +75,14 @@ export default function DogsApp() {
           </Text>
         </Flex>
         <Flex justifyContent="space-around" mt="25px">
-          <Text color="white" fontSize="20px" fontWeight="semibold">
-            🔨 fixing some bugs
-          </Text>
+        <Link
+            href="https://pi-dogs-client-five.vercel.app/"
+            color="white"
+            fontSize="20px"
+            fontWeight="semibold"
+          >
+            🌐 go to site
+          </Link>
           <Link
             href="https://github.com/ulisesgomez123/Pi-Dogs-Client"
             color="white"
