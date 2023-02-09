@@ -1,6 +1,15 @@
 import React, { useLayoutEffect, useRef, useState } from "react";
 import gsap from "gsap";
 import { Box, Text, Img, Button, Flex, Link } from "@chakra-ui/react";
+import { extendTheme } from '@chakra-ui/react';
+
+const breakpoints = {
+  sm: "530px",
+  md: "700px",
+  lg: "960px",
+  xl: "1200px",
+};
+const theme = extendTheme({ breakpoints })
 
 function PopUpComponent () {
   const popUp = useRef();
@@ -47,15 +56,16 @@ export default function DogsApp() {
   }, [state]);
   return (
     <Box
-      w="400px"
-      h="400px"
+      w={{base:"200px",sm:'400px'}}
+      h={{base:"200px",sm:'400px'}}
       onMouseEnter={() => setState({ hover: true, mount: false })}
       onMouseLeave={() => setState({ hover: false, mount: false })}
-      mt="3%"
+      m="3%"
     >
       <Img
-        w="400px"
-        h="400px"
+        w={{base:"200px",sm:'400px'}}
+        h={{base:"200px",sm:'400px'}}
+        objectFit='cover'
         position="absolute"
         zIndex={-1}
         borderRadius="20px"
@@ -63,8 +73,8 @@ export default function DogsApp() {
         src="https://firebasestorage.googleapis.com/v0/b/rentalibre-fbbda.appspot.com/o/userPicture%2F2777ad31-6e62-4eb6-809d-685bf53b0179.png?alt=media&token=6f218c0a-f538-46c8-a24b-bfc3fa231c88"
       />
       <Box
-        w="400px"
-        h="400px"
+        w={{base:"200px",sm:'400px'}}
+        h={{base:"200px",sm:'400px'}}
         bgColor="rgba(0, 0, 0, 0.7)"
         borderRadius="20px"
         ref={proyects}
@@ -78,7 +88,7 @@ export default function DogsApp() {
         <Link
             href="https://pi-dogs-client-five.vercel.app/"
             color="white"
-            fontSize="20px"
+            fontSize={{base:"12px",sm:'20px'}}
             fontWeight="semibold"
           >
             🌐 go to site
@@ -86,7 +96,7 @@ export default function DogsApp() {
           <Link
             href="https://github.com/ulisesgomez123/Pi-Dogs-Client"
             color="white"
-            fontSize="20px"
+            fontSize={{base:"12px",sm:'20px'}}
             fontWeight="semibold"
           >
             💼Repository

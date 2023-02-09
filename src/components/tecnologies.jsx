@@ -4,6 +4,15 @@ import {Box,Button,Flex,Text,Img} from '@chakra-ui/react'
 import { gsap } from 'gsap/dist/gsap';
 import { ScrollTrigger } from 'gsap/dist/ScrollTrigger';
 import { useIsomorphicLayoutEffect } from '../../isomorphicEffect';
+import { extendTheme } from '@chakra-ui/react';
+
+const breakpoints = {
+  sm: "530px",
+  md: "700px",
+  lg: "960px",
+  xl: "1200px",
+};
+const theme = extendTheme({ breakpoints })
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -26,7 +35,7 @@ function DataBase () {
   }, []);
 
   return (
-  <Box border="solid 2px " borderRadius='40px' m='2%'>
+  <Box border="solid 2px " borderRadius='40px' m='2%' pb='8%'>
     <Flex justifyContent='center' bgColor='black' borderRadius='37px 37px 0 0'>
     <Text fontSize="40px" fontWeight="semibold" textAlign="center"
         color="rgba(72, 168, 242, 0.735)"
@@ -37,60 +46,60 @@ function DataBase () {
     <Flex wrap='wrap' ref={database}>
     <Box className="databaseItem"
       m="3%" border="solid 2px rgba(72, 168, 242, 0.735)" borderRadius="20px" 
-      boxShadow="30px 10px black"
+      boxShadow={{base:'15px 5px black',sm:"30px 10px black"}}
     >
-      <Text fontSize="30px" bgColor="black" fontWeight="semibold" textAlign="center"
+      <Text fontSize={{base:'15px',sm:"30px"}} bgColor="black" fontWeight="semibold" textAlign="center"
        mb="10px" color="rgba(72, 168, 242, 0.735)" borderRadius=" 18px  18px 0 0"
       >
         Prisma
       </Text>
       <Img ml="20px" mb="10px" mr="20px"
-        w="250px" h="250px"
+        w={{base:'70px',sm:"250px"}} h={{base:'70px',sm:"250px"}}
         src="https://firebasestorage.googleapis.com/v0/b/rentalibre-fbbda.appspot.com/o/userPicture%2Fprisma.png?alt=media&token=f974dcc8-0203-4b78-a621-8e3611331c1f"
       />
     </Box>
     <Box
       m="3%" border="solid 2px rgba(72, 168, 242, 0.735)" borderRadius="20px"
-      boxShadow="30px 10px black" className='databaseItem'
+      boxShadow={{base:'15px 5px black',sm:"30px 10px black"}} className='databaseItem'
     >
-      <Text  fontSize="30px"  bgColor="black"  fontWeight="semibold"
+      <Text  fontSize={{base:'15px',sm:"30px"}}  bgColor="black"  fontWeight="semibold"
         textAlign="center" mb="10px" color="rgba(72, 168, 242, 0.735)" 
         borderRadius=" 18px  18px 0 0"
       >
         Sequalize
       </Text>
       <Img
-        ml="20px" mb="10px" mr="10px" w="250px" h="250px"
+        ml="20px" mb="10px" mr="10px" w={{base:'70px',sm:"250px"}} h={{base:'70px',sm:"250px"}}
         src="https://firebasestorage.googleapis.com/v0/b/rentalibre-fbbda.appspot.com/o/userPicture%2Fsequalize.png?alt=media&token=b8e7ae3a-cf3e-40d7-b3e1-0c5eb7cd84e8"
       />
     </Box>
     <Box
     className='databaseItem'
       m="3%" border="solid 2px rgba(72, 168, 242, 0.735)" borderRadius="20px" 
-      boxShadow="30px 10px black"
+      boxShadow={{base:'15px 5px black',sm:"30px 10px black"}}
     >
-      <Text fontSize="30px" bgColor="black" fontWeight="semibold" textAlign="center"
+      <Text fontSize={{base:'15px',sm:"30px"}} bgColor="black" fontWeight="semibold" textAlign="center"
        mb="10px" color="rgba(72, 168, 242, 0.735)" borderRadius=" 18px  18px 0 0"
       >
         Postgres
       </Text>
       <Img
-        ml="20px" mb="10px" mr="20px" w="250px" h="250px"
+        ml="20px" mb="10px" mr="20px" w={{base:'70px',sm:"250px"}} h={{base:'70px',sm:"250px"}}
         src='https://firebasestorage.googleapis.com/v0/b/rentalibre-fbbda.appspot.com/o/userPicture%2FpostGres.png?alt=media&token=549d5ebf-8f1b-4b32-86d5-0a8d47baabc5'
       />
     </Box>
     <Box
     className='databaseItem'
       m="3%" border="solid 2px rgba(72, 168, 242, 0.735)" borderRadius="20px" 
-      boxShadow="30px 10px black"
+      boxShadow={{base:'15px 5px black',sm:"30px 10px black"}}
     >
-      <Text fontSize="30px" bgColor="black" fontWeight="semibold" textAlign="center"
+      <Text fontSize={{base:'15px',sm:"30px"}} bgColor="black" fontWeight="semibold" textAlign="center"
        mb="10px" color="rgba(72, 168, 242, 0.735)" borderRadius=" 18px  18px 0 0"
       >
         Mongo DB
       </Text>
       <Img
-        ml="20px" mb="10px" mr="20px" w="300px" h="200px"
+        ml="20px" mb="10px" mr="20px" w={{base:'75px',sm:"300px"}} h={{base:'60px',sm:"200px"}}
         src='https://firebasestorage.googleapis.com/v0/b/rentalibre-fbbda.appspot.com/o/MongoDB_logo_PNG2.png?alt=media&token=7534ebee-a49d-4a9a-9b72-64925f6a05ab'
       />
     </Box>
@@ -118,7 +127,7 @@ function BackEnd () {
     },backend)
   }, []);
   return (
-  <Box border="solid 2px rgb(8, 226, 8)" borderRadius='40px' m='2%' >
+  <Box border="solid 2px rgb(8, 226, 8)" borderRadius='40px' m='2%' pb='8%'>
     <Flex justifyContent='center' bgColor='black' borderRadius='37px 37px 0 0'>
     <Text fontSize="40px" fontWeight="semibold" textAlign="center"
         color="rgb(8, 226, 8)"
@@ -129,60 +138,60 @@ function BackEnd () {
     <Flex wrap='wrap' ref={backend} >
     <Box className="backendItem"
       m="3%" border="solid 2px rgb(8, 226, 8)" borderRadius="20px" 
-      boxShadow="30px 10px black"
+      boxShadow={{base:'15px 5px black',sm:"30px 10px black"}}
     >
-      <Text fontSize="30px" bgColor="black" fontWeight="semibold" textAlign="center"
+      <Text fontSize={{base:'15px',sm:"30px"}} bgColor="black" fontWeight="semibold" textAlign="center"
        mb="10px" color="rgb(8, 226, 8)" borderRadius=" 18px  18px 0 0"
       >
         Trpc
       </Text>
       <Img ml="20px" mb="10px" mr="20px"
-        w="250px" h="250px"
+        w={{base:'70px',sm:"250px"}} h={{base:'70px',sm:"250px"}}
         src="https://firebasestorage.googleapis.com/v0/b/rentalibre-fbbda.appspot.com/o/trpc.svg?alt=media&token=fc94b3af-7361-4a5f-ab40-f4cbec701d3e"
       />
     </Box>
     <Box
       m="3%" border="solid 2px rgb(8, 226, 8)" borderRadius="20px"
-      boxShadow="30px 10px black" className='backendItem'
+      boxShadow={{base:'15px 5px black',sm:"30px 10px black"}} className='backendItem'
     >
-      <Text  fontSize="30px"  bgColor="black"  fontWeight="semibold"
+      <Text  fontSize={{base:'15px',sm:"30px"}}  bgColor="black"  fontWeight="semibold"
         textAlign="center" mb="10px" color="rgb(8, 226, 8)" 
         borderRadius=" 18px  18px 0 0"
       >
         Express
       </Text>
       <Img
-        ml="20px" mb="10px" mr="10px" w="250px" h="100px"
+        ml="20px" mb="10px" mr="10px" w={{base:'70px',sm:"250px"}} h={{base:'45px',sm:"100px"}}
         src="https://firebasestorage.googleapis.com/v0/b/rentalibre-fbbda.appspot.com/o/Expressjs.png?alt=media&token=4b346434-14b3-4ca6-9fa7-bacd326b3e40"
       />
     </Box>
     <Box
     className='backendItem'
       m="3%" border="solid 2px rgb(8, 226, 8)" borderRadius="20px" 
-      boxShadow="30px 10px black"
+      boxShadow={{base:'15px 5px black',sm:"30px 10px black"}}
     >
-      <Text fontSize="30px" bgColor="black" fontWeight="semibold" textAlign="center"
+      <Text fontSize={{base:'15px',sm:"30px"}} bgColor="black" fontWeight="semibold" textAlign="center"
        mb="10px" color="rgb(8, 226, 8)" borderRadius=" 18px  18px 0 0"
       >
         Node js
       </Text>
       <Img
-        ml="20px" mb="10px" mr="20px" w="250px" h="150px"
+        ml="20px" mb="10px" mr="20px" w={{base:'70px',sm:"250px"}} h={{base:'50px',sm:"150px"}}
         src='https://firebasestorage.googleapis.com/v0/b/rentalibre-fbbda.appspot.com/o/nodejs-1-logo.png?alt=media&token=935c6f39-3450-4cb1-9dca-c5ce4810c6f5'
       />
     </Box>
     <Box
     className='backendItem'
       m="3%" border="solid 2px rgb(8, 226, 8)" borderRadius="20px" 
-      boxShadow="30px 10px black"
+      boxShadow={{base:'15px 5px black',sm:"30px 10px black"}}
     >
-      <Text fontSize="30px" bgColor="black" fontWeight="semibold" textAlign="center"
+      <Text fontSize={{base:'15px',sm:"30px"}} bgColor="black" fontWeight="semibold" textAlign="center"
        mb="10px" color="rgb(8, 226, 8)" borderRadius=" 18px  18px 0 0"
       >
         javaScript
       </Text>
       <Img
-        ml="20px" mb="10px" mr="20px" w="250px" h="250px"
+        ml="20px" mb="10px" mr="20px" w={{base:'70px',sm:"250px"}} h={{base:'70px',sm:"250px"}}
         src='https://firebasestorage.googleapis.com/v0/b/rentalibre-fbbda.appspot.com/o/javascript-logo-1.png?alt=media&token=73fe2ce5-2fd4-44e0-9821-4d05b7697d60'
       />
     </Box>
@@ -213,7 +222,7 @@ function FrontEnd () {
   }, []);
 
   return (
-  <Box border="solid 2px rgb(229, 245, 7)" borderRadius='40px' m='2%' ref={frontend}>
+  <Box border="solid 2px rgb(229, 245, 7)" borderRadius='40px' m='2%' ref={frontend} pb='8%'>
     <Flex justifyContent='center' bgColor='black' borderRadius='37px 37px 0 0'>
     <Text fontSize="40px" fontWeight="semibold" textAlign="center"
         color="rgb(229, 245, 7)"
@@ -224,90 +233,90 @@ function FrontEnd () {
     <Flex wrap='wrap'>
     <Box className="frontendItem"
       m="3%" border="solid 2px rgb(229, 245, 7)" borderRadius="20px" 
-      boxShadow="30px 10px black"
+      boxShadow={{base:'15px 5px black',sm:"30px 10px black"}}
     >
-      <Text fontSize="30px" bgColor="black" fontWeight="semibold" textAlign="center"
+      <Text fontSize={{base:'15px',sm:"30px"}} bgColor="black" fontWeight="semibold" textAlign="center"
        mb="10px" color="rgb(229, 245, 7)" borderRadius=" 18px  18px 0 0"
       >
         Next Js
       </Text>
       <Img ml="20px" mb="10px" mr="20px"
-        w="250px" h="250px"
+        w={{base:'70px',sm:"250px"}} h={{base:'70px',sm:"250px"}}
         src="https://firebasestorage.googleapis.com/v0/b/rentalibre-fbbda.appspot.com/o/next-js-logo-7929BCD36F-seeklogo.com.png?alt=media&token=fe2ddda8-6de0-4920-b8bf-c397d94cb096"
       />
     </Box>
     <Box
       m="3%" border="solid 2px rgb(229, 245, 7)" borderRadius="20px"
-      boxShadow="30px 10px black" className='frontendItem'
+      boxShadow={{base:'15px 5px black',sm:"30px 10px black"}} className='frontendItem'
     >
-      <Text  fontSize="30px"  bgColor="black"  fontWeight="semibold"
+      <Text  fontSize={{base:'15px',sm:"30px"}}  bgColor="black"  fontWeight="semibold"
         textAlign="center" mb="10px" color="rgb(229, 245, 7)" 
         borderRadius=" 18px  18px 0 0"
       >
         React
       </Text>
       <Img
-        ml="20px" mb="10px" mr="10px" w="250px" h="250px"
+        ml="20px" mb="10px" mr="10px" w={{base:'70px',sm:"250px"}} h={{base:'70px',sm:"250px"}}
         src="https://firebasestorage.googleapis.com/v0/b/rentalibre-fbbda.appspot.com/o/React-icon.svg.png?alt=media&token=22f14c44-9923-4660-8671-d3167105422c"
       />
     </Box>
     <Box
     className='frontendItem'
       m="3%" border="solid 2px rgb(229, 245, 7)" borderRadius="20px" 
-      boxShadow="30px 10px black"
+      boxShadow={{base:'15px 5px black',sm:"30px 10px black"}}
     >
-      <Text fontSize="30px" bgColor="black" fontWeight="semibold" textAlign="center"
+      <Text fontSize={{base:'15px',sm:"30px"}} bgColor="black" fontWeight="semibold" textAlign="center"
        mb="10px" color="rgb(229, 245, 7)" borderRadius=" 18px  18px 0 0"
       >
         Redux 
       </Text>
       <Img
-        ml="20px" mb="10px" mr="20px" w="250px" h="250px"
+        ml="20px" mb="10px" mr="20px" w={{base:'70px',sm:"250px"}} h={{base:'70px',sm:"250px"}}
         src='https://firebasestorage.googleapis.com/v0/b/rentalibre-fbbda.appspot.com/o/redux%202.png?alt=media&token=87ee26dc-bc47-416a-bca3-db1b01c3596b'
       />
     </Box>
     <Box
     className='frontendItem'
       m="3%" border="solid 2px rgb(229, 245, 7)" borderRadius="20px" 
-      boxShadow="30px 10px black"
+      boxShadow={{base:'15px 5px black',sm:"30px 10px black"}}
     >
-      <Text fontSize="30px" bgColor="black" fontWeight="semibold" textAlign="center"
+      <Text fontSize={{base:'15px',sm:"30px"}} bgColor="black" fontWeight="semibold" textAlign="center"
        mb="10px" color="rgb(229, 245, 7)" borderRadius=" 18px  18px 0 0"
       >
         javaScript
       </Text>
       <Img
-        ml="20px" mb="10px" mr="20px" w="250px" h="250px"
+        ml="20px" mb="10px" mr="20px" w={{base:'70px',sm:"250px"}} h={{base:'70px',sm:"250px"}}
         src='https://firebasestorage.googleapis.com/v0/b/rentalibre-fbbda.appspot.com/o/javascript-logo-1.png?alt=media&token=73fe2ce5-2fd4-44e0-9821-4d05b7697d60'
       />
     </Box>
     <Box
     className='frontendItem'
       m="3%" border="solid 2px rgb(229, 245, 7)" borderRadius="20px" 
-      boxShadow="30px 10px black"
+      boxShadow={{base:'15px 5px black',sm:"30px 10px black"}}
     >
-      <Text fontSize="30px" bgColor="black" fontWeight="semibold" textAlign="center"
+      <Text fontSize={{base:'15px',sm:"30px"}} bgColor="black" fontWeight="semibold" textAlign="center"
        mb="10px" color="rgb(229, 245, 7)" borderRadius=" 18px  18px 0 0"
       >
         HTML
       </Text>
       <Img
-        ml="20px" mb="10px" mr="20px" w="250px" h="250px"
+        ml="20px" mb="10px" mr="20px" w={{base:'70px',sm:"250px"}} h={{base:'70px',sm:"250px"}}
         src='https://firebasestorage.googleapis.com/v0/b/rentalibre-fbbda.appspot.com/o/html.png?alt=media&token=901967dd-ec96-49e0-8cd9-05bb0ce1154d'
       />
     </Box>
     <Box
     className='frontendItem'
       m="3%" border="solid 2px rgb(229, 245, 7)" borderRadius="20px" 
-      boxShadow="30px 10px black"
+      boxShadow={{base:'15px 5px black',sm:"30px 10px black"}}
     >
-      <Text fontSize="30px" bgColor="black" fontWeight="semibold" textAlign="center"
+      <Text fontSize={{base:'15px',sm:"30px"}} bgColor="black" fontWeight="semibold" textAlign="center"
        mb="10px" color="rgb(229, 245, 7)" borderRadius=" 18px  18px 0 0"
       >
         CSS
       </Text>
       <Img
-        ml="20px" mb="10px" mr="20px" w="250px" h="250px"
+        ml="20px" mb="10px" mr="20px" w={{base:'70px',sm:"250px"}} h={{base:'70px',sm:"250px"}}
         src='https://firebasestorage.googleapis.com/v0/b/rentalibre-fbbda.appspot.com/o/css.png?alt=media&token=74c9bddc-97c3-415f-b91c-343e2b6aabb6'
       />
     </Box>

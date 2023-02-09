@@ -1,6 +1,15 @@
 import React, { useLayoutEffect, useRef, useState } from "react";
 import gsap from "gsap";
 import { Box, Text, Img, Button, Flex, Link } from "@chakra-ui/react";
+import { extendTheme } from '@chakra-ui/react';
+
+const breakpoints = {
+  sm: "530px",
+  md: "700px",
+  lg: "960px",
+  xl: "1200px",
+};
+const theme = extendTheme({ breakpoints })
 
 
 
@@ -29,25 +38,26 @@ export default function MovieApp() {
   }, [state]);
   return (
     <Box
-      w="400px"
-      h="400px"
+      w={{base:"200px",sm:'400px'}}
+      h={{base:"200px",sm:'400px'}}
       onMouseEnter={() => setState({ hover: true, mount: false })}
       onMouseLeave={() => setState({ hover: false, mount: false })}
       m="3%"
     >
   
       <Img
-        w="400px"
-        h="400px"
+        w={{base:"200px",sm:'400px'}}
+        h={{base:"200px",sm:'400px'}}
         position="absolute"
+        objectFit='cover'
         zIndex={-1}
         borderRadius="20px"
         border="solid black 2px"
         src="https://firebasestorage.googleapis.com/v0/b/rentalibre-fbbda.appspot.com/o/userPicture%2Fd16c7537-8cd4-4070-81c1-16219c1a8feb.png?alt=media&token=f85b8088-618d-4c8e-b75e-80d12f5ec527"
       />
       <Box
-        w="400px"
-        h="400px"
+        w={{base:"200px",sm:'400px'}}
+        h={{base:"200px",sm:'400px'}}
         bgColor="rgba(0, 0, 0, 0.7)"
         borderRadius="20px"
         ref={proyects}
@@ -61,7 +71,7 @@ export default function MovieApp() {
           <Link
             href="https://movie-app-two-inky.vercel.app/"
             color="white"
-            fontSize="20px"
+            fontSize={{base:"12px",sm:'20px'}}
             fontWeight="semibold"
           >
             🌐 go to site
@@ -69,7 +79,7 @@ export default function MovieApp() {
           <Link
             href="https://github.com/ulisesgomez123/Movie-app"
             color="white"
-            fontSize="20px"
+            fontSize={{base:"12px",sm:'20px'}}
             fontWeight="semibold"
           >
             💼Repository

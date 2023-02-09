@@ -1,7 +1,15 @@
 import React, { useLayoutEffect, useRef } from "react";
 import gsap from "gsap";
 import { Box, Text, Img, Button, Flex } from "@chakra-ui/react";
+import { extendTheme } from '@chakra-ui/react';
 
+const breakpoints = {
+  sm: "530px",
+  md: "700px",
+  lg: "960px",
+  xl: "1200px",
+};
+const theme = extendTheme({ breakpoints })
 
 export default function Presentation() {
   const name = useRef();
@@ -31,12 +39,12 @@ export default function Presentation() {
 
   return (
     <Box>
-      <Box textAlign="center" ref={box} m="20px 25% 0 25%" borderRadius="10px">
+      <Box textAlign="center" ref={box} m={{base:"20px 5% 0 5%",sm:"20px 25% 0 25%"}} borderRadius="10px">
         <Text
           m="3% 0 0 0"
           className="my-name"
           ref={name}
-          fontSize="40px"
+          fontSize={{base:"25px",sm:"40px"}}
           fontWeight="semibold"
           color="rgba(72, 168, 242, 0.735)"
         >
@@ -46,7 +54,7 @@ export default function Presentation() {
           m="0"
           className="my-name"
           ref={profesion}
-          fontSize="40px"
+          fontSize={{base:"25px",sm:"40px"}}
           fontWeight="semibold"
           color="ghostwhite"
         >

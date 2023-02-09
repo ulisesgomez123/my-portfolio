@@ -1,6 +1,15 @@
 import React, { useLayoutEffect, useRef, useState} from 'react'
 import gsap from 'gsap';
 import {Box,Text,Img,Button,Flex,Link} from '@chakra-ui/react'
+import { extendTheme } from '@chakra-ui/react';
+
+const breakpoints = {
+  sm: "530px",
+  md: "700px",
+  lg: "960px",
+  xl: "1200px",
+};
+const theme = extendTheme({ breakpoints })
 
 export default function RentaLibre () {
   const [state,setState] = useState({
@@ -25,31 +34,31 @@ export default function RentaLibre () {
     return () => ctx.revert();
   },[state]);
   return (
-    <Box mb='8%'>
-    <Box w="400px" h="400px" 
+    <Box m='3%' w={{base:"200px",sm:'400px'}}>
+    <Box w={{base:"200px",sm:'400px'}} h={{base:"200px",sm:'400px'}} 
     onMouseEnter={()=>setState({hover:true,mount:false})} 
     onMouseLeave={()=>setState({hover:false,mount:false})}
-   mt='8%' mb='2%'
     >
       <Img
-        w="400px" h="400px"
+        w={{base:"200px",sm:'400px'}} h={{base:"200px",sm:'400px'}}
         position='absolute'
+        objectFit='cover'
         zIndex={-1}
         borderRadius="20px"
         border="solid black 2px"
         src="https://firebasestorage.googleapis.com/v0/b/rentalibre-fbbda.appspot.com/o/userPicture%2FWhatsApp%20Image%202023-01-12%20at%2010.52.25.jpeg?alt=media&token=0ffea6a0-df06-4db4-96d3-3d8886a7b072"
       />
-<Box w="400px" h="400px" bgColor='rgba(0, 0, 0, 0.7)' borderRadius="20px"
+<Box w={{base:"200px",sm:'400px'}} h={{base:"200px",sm:'400px'}} bgColor='rgba(0, 0, 0, 0.7)' borderRadius="20px"
       ref={proyects}
        >
       <Flex  justifyContent='center'>
         <Text color="white" fontSize='30px' fontWeight='semibold'>RentaLibre</Text>
       </Flex>
         <Flex justifyContent='space-around' mt='25px'>
-          <Link href="https://rentalibre.vercel.app/" color="white" fontSize='20px' fontWeight='semibold'>
+          <Link href="https://rentalibre.vercel.app/" color="white" fontSize={{base:"12px",sm:'20px'}} fontWeight='semibold'>
             🌐 go to site
           </Link>
-          <Link href="https://github.com/ulisesgomez123/PF-RentaLibre-HENRY" color="white" fontSize='20px' fontWeight='semibold'>
+          <Link href="https://github.com/ulisesgomez123/PF-RentaLibre-HENRY" color="white" fontSize={{base:"12px",sm:'20px'}} fontWeight='semibold'>
           💼Repository
           </Link>
         </Flex>
